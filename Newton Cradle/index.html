@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newton Cradle</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        
+        /* first we create a hanger for newton cradle  */
+        .cradle
+        {
+            height: 20px;
+            width: 500px;
+            background-color: blueviolet;
+            border-radius: 20px;
+            position: absolute;
+            top: 80px;
+            left: 500px;
+            display: flex;
+            justify-content: center;
+            gap: 38px;
+            
+        }
+        
+        div{
+            height: 200px;
+            width: 10px;
+            background-color: blueviolet;
+            position: relative;
+            
+        }
 
+        /* using before pseudo element we can add box  to a div  */
+        .cradle div::before{
+            content: "";
+            position: absolute;
+            /* bottom: 0px; */
+            top: 190px;
+            left: -19px;
+            width: 3rem;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: blueviolet;
+        }
+        
+
+        /* now once cradle will be formed we can add animation  */
+        .cradle div:first-child 
+        {
+            animation-name: swing-left;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            transform-origin: top;
+        }
+
+        @keyframes swing-left
+        {
+            0%
+            {
+                rotate: 0deg;
+            }
+            25%
+            {
+                rotate: 30deg;
+            }
+            50%
+            {
+                rotate: 0deg;
+            }
+            100%
+            {
+                rotate: 0deg;
+            }
+        }
+
+        .cradle div:last-child{
+            animation: right-swing 2s linear infinite ;
+            animation-delay: 1s;
+            transform-origin: top;
+        }
+
+        @keyframes right-swing {
+            0%{
+                rotate: 0deg;
+            }
+            25%
+            {
+                rotate: -30deg;
+            }
+            50%{
+                rotate: 0deg;
+            }
+            100%
+            {
+                rotate: 0deg;
+            }
+            
+        }
+
+    </style>
+</head>
+<body style="background-color:rgb(201, 164, 235)">
+   <div class="cradle">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+   </div>
+
+</body>
+</html>
