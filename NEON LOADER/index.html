@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Loader</title>
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+     <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.loader
+{
+    width: 14rem;
+    aspect-ratio: 1;
+    background-color: blueviolet;
+    /* background: transparent; */
+    border-radius: 50%;
+
+    position: relative;
+
+    
+    /* now adding the animation to it: */ 
+    animation: load  2s linear infinite;
+}
+
+/* now creating a new circle with width: */
+.loader::before
+{
+    content: "";
+    width: 12rem;
+    aspect-ratio: 1;
+    background-color: white;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+/* now adding one loading point using after pseudo class:  */
+
+.loader::after
+{
+   content: "";
+    width: 2rem;
+    aspect-ratio: 1;
+    background-color: yellow;
+    border-radius: 50%;
+    top: 5rem;
+    left: -1rem;
+    position: absolute;
+    box-shadow: 0 0 2rem 1rem orange;
+}
+
+       
+@keyframes load{
+    100%{
+        transform: rotate(360deg);
+        /* rotate: 360deg; */
+    }
+}
+     </style>
+</head>
+  
+<body>
+    <div class="loader">
+    </div>
+</body>
+</html>
