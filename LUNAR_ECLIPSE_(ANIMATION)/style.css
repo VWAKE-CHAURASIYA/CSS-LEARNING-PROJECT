@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    display: grid;
+    height: 100vh;
+    place-content: center;
+}
+
+.universe
+{
+    width: 40rem;
+    aspect-ratio: 1;
+    border: 2px solid black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(222, 222, 164);
+    border-radius: 2rem;
+
+/* if we want to change unverse background also:  */
+animation: universekey 5s linear infinite;
+}
+
+@keyframes universekey
+{
+    0%
+    {
+      background-color: rgb(222, 222, 164); ;
+    }
+  
+    50%{
+        background-color: rgb(0, 0, 0);
+    }
+      100%{
+         background-color: rgb(222, 222, 164);
+    }
+}
+
+.sun
+{
+    width: 13rem;
+    aspect-ratio: 1;
+    
+    border-radius: 50%;
+    background-color: orange;
+    box-shadow: 0 0 3rem 2rem yellow;
+
+    position: relative;
+
+    overflow: hidden;
+
+
+    /* CRATING A MOON:  */
+
+    /* now here we need to create a moon {using ::before/ ::after element} */
+    /* using nesting*/
+    &::after{
+        content: "";
+        width: inherit;
+        aspect-ratio: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: black;
+        border-radius: inherit;
+
+        /* now putting animation*/
+        animation: moonwalk 5s ease-in-out infinite;
+    }
+}
+
+@keyframes moonwalk
+{
+    0%{
+        translate: 100%;
+        scale: 1;
+    }
+    50%
+    {
+        translate: 0%; 
+        /* here we need to stop for a second, i.e why we use {ease-in-out} */
+        scale: 0.9;
+    }
+    100%
+    {
+        translate: -100%;
+        scale: 1;
+    }
+}
