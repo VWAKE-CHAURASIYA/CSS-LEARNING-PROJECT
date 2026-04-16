@@ -1,0 +1,93 @@
+  *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .carasual-container
+        {
+            background-color: blue;
+            margin: 12rem 0;
+            overflow:hidden;
+
+        }
+
+        .carasual-scroll-1
+        {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+            /* NOW HERE I NEED TO ADD THE ANIMATION FOR THE INFINITE SCROLING:  */
+            animation: Scroll-1 10s linear infinite;
+        }
+
+        /* DEFINING THE ANIMATION HERE: */
+        @keyframes Scroll-1 {
+            0%
+            {
+                transform: translateX(0);
+            }
+            100%
+            {
+                transform: translateX(-50%);     /*IT MOVES TOWARS RIGHT SIDE, BY 50% WIDTH...*/
+            }
+            
+        }
+
+        /* ADDING HOVER EFFECT TO STOP THE ANIMATION WHILE HOVERING OVER IT: */
+        .carasual-container:hover .carasual-scroll-1
+        {
+            animation-play-state: paused;    /* IT'S USED TO STOP THE ANIMATION */
+            cursor: pointer;
+        }
+
+
+
+
+
+
+
+        .carasual-scroll-2
+        {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+            /* NOW HERE I NEED TO ADD THE ANIMATION FOR THE INFINITE SCROLING:  */
+            animation: Scroll-2 10s linear infinite;
+        }
+
+              @keyframes Scroll-2 {
+            0%
+            {
+                transform: translateX(-50%);
+            }
+            100%
+            {
+                transform: translateX(0);
+            }
+            
+        }
+
+          .carasual-container:hover .carasual-scroll-2
+        {
+            animation-play-state: paused;    /* IT'S USED TO STOP THE ANIMATION */
+            cursor: pointer;
+        }
+
+
+
+
+        
+/* DEFINING THE CARDS HERE:  */
+        .item
+        {
+            flex: 0 0 auto;  /*Thsi flex line with value 0 0 and auto are neither shrinks nor grow, so its value will be as it as per width and height*/
+            width: 300px;
+            height: 100px;
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2rem;
+        }
